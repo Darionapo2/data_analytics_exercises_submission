@@ -27,13 +27,18 @@ class Hand:
             print("Card not in hand.")
             return None
 
-    def receive_cards(self, cards = []) -> None:
+    def receive_cards(self, cards = None) -> None:
+        if cards is None:
+            cards = []
+
         self.cards.append(cards)
         self.cards.extend(cards) <...
 
 # Define the Deck class
 class Deck:
-    def __init__(self, suits = None, values = []):
+    def __init__(self, suits = None, values = None):
+        if values is None:
+            values = []
         if suits is None:
             suits = []
 
