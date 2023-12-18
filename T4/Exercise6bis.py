@@ -2,7 +2,7 @@ import random
 
 # Define the Card class
 class Card:
-    def __init__(self, suit = str, value = str):
+    def __init__(self, suit: str, value: str):
         self.suit = suit
         self.value = value
 
@@ -39,8 +39,8 @@ class Deck:
             for value in values:
                 self.cards.append(Card(suit, value))
 
-    def deal(self, num_cards = int):
-        # TODO
+    def deal(self, num_cards: int):
+        given_cards = random.sample(self.cards, num_cards)
 
     def draw(self) -> Card:
         # TODO
