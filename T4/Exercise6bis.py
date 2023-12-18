@@ -33,7 +33,10 @@ class Hand:
 
 # Define the Deck class
 class Deck:
-    def __init__(self, suits = [], values = []):
+    def __init__(self, suits = None, values = []):
+        if suits is None:
+            suits = []
+
         self.cards = []
         for suit in suits:
             for value in values:
