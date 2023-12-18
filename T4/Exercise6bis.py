@@ -1,4 +1,6 @@
 import random
+from typing import Type
+
 
 # Define the Card class
 class Card:
@@ -19,7 +21,7 @@ class Hand:
         self.cards.extend(drawn_cards)
         return drawn_cards
 
-    def discard(self, card = Card) -> Card:
+    def discard(self, card = Card) -> Type[Card] | None:
         if card in self.cards:
             self.cards.remove(card)
             return card
@@ -49,6 +51,9 @@ class Deck:
 
     def deal(self, num_cards: int):
         given_cards = random.sample(self.cards, num_cards)
+        remaining_cards = list(set(self.cards) - set(given_cards))
+        self.cards = remaining_cards
+        return given_cards
 
     def draw(self) -> Card:
         # TODO
